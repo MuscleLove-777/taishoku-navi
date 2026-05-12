@@ -9,6 +9,7 @@ from pathlib import Path
 #   CI:       repo root に blog_engine/ をチェックアウト済（actions/checkout の path: blog_engine）
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(HERE.parent))  # for local hub: blog_engine sibling
 sys.path.insert(0, str(HERE.parent.parent))  # for CI: blog_engine 親
 sys.path.insert(0, str(HERE.parent.parent.parent))  # for ローカル
 
