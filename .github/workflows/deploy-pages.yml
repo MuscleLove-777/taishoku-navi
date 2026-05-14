@@ -69,6 +69,14 @@ jobs:
           echo "${{ github.event.repository.name }}" > .compass_self_slug
           python scripts/inject_compass_footer.py
       - uses: actions/configure-pages@v5
+      - name: Ensure robots.txt
+        run: |
+          mkdir -p output/site
+          cat > output/site/robots.txt <<'EOF'
+          User-agent: *
+          Allow: /
+          Sitemap: https://musclelove-777.github.io/taishoku-navi/sitemap.xml
+          EOF
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./output/site
